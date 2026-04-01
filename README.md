@@ -93,15 +93,31 @@ All standard JavaScript syntax (variables, control flow, strings, etc.) is highl
 
 ## Testing with Highlight.js Core
 
-To test this plugin against the Highlight.js test suite, clone the [highlight.js repo](https://github.com/highlightjs/highlight.js) and symlink this package into its `extra/` directory:
+To test this plugin against the Highlight.js test suite, clone the [highlight.js repo](https://github.com/highlightjs/highlight.js.git) and link this package into its `extra/` directory. Run the commands from the **parent folder** that contains both `highlight.js` (the clone) and `highlightjs-sfmc`.
+
+**Bash / macOS / Linux** (symbolic link):
 
 ```bash
 git clone --depth 1 https://github.com/highlightjs/highlight.js.git
 cd highlight.js
+mkdir -p extra
 ln -s ../highlightjs-sfmc extra/highlightjs-sfmc
 node ./tools/build.js -t node
 npm test
 ```
+
+**Windows PowerShell** (directory junction; usually works without elevated rights):
+
+```powershell
+git clone --depth 1 https://github.com/highlightjs/highlight.js.git
+Set-Location highlight.js
+New-Item -ItemType Directory -Force -Path extra | Out-Null
+New-Item -ItemType Junction -Path "extra\highlightjs-sfmc" -Target (Resolve-Path "..\highlightjs-sfmc")
+node .\tools\build.js -t node
+npm test
+```
+
+If `Resolve-Path` fails, adjust `-Target` to the absolute path of your `highlightjs-sfmc` checkout. You can use a symbolic link instead (`New-Item -ItemType SymbolicLink`) if your Windows version and policy allow it (often requires an elevated shell or Developer Mode).
 
 ## License
 
