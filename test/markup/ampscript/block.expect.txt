@@ -1,0 +1,15 @@
+<span class="hljs-meta">%%[</span>
+<span class="hljs-keyword">VAR</span> <span class="hljs-variable">@firstName</span><span class="hljs-punctuation">,</span> <span class="hljs-variable">@lastName</span><span class="hljs-punctuation">,</span> <span class="hljs-variable">@fullName</span>
+<span class="hljs-keyword">SET</span> <span class="hljs-variable">@firstName</span> = <span class="hljs-string">&quot;John&quot;</span>
+<span class="hljs-keyword">SET</span> <span class="hljs-variable">@lastName</span> = <span class="hljs-built_in">AttributeValue</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;LastName&quot;</span><span class="hljs-punctuation">)</span>
+
+<span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-built_in">Empty</span><span class="hljs-punctuation">(</span><span class="hljs-variable">@firstName</span><span class="hljs-punctuation">)</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">NOT</span> <span class="hljs-built_in">Empty</span><span class="hljs-punctuation">(</span><span class="hljs-variable">@lastName</span><span class="hljs-punctuation">)</span> <span class="hljs-keyword">THEN</span>
+  <span class="hljs-keyword">SET</span> <span class="hljs-variable">@fullName</span> = <span class="hljs-built_in">Concat</span><span class="hljs-punctuation">(</span><span class="hljs-variable">@firstName</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot; &quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-variable">@lastName</span><span class="hljs-punctuation">)</span>
+<span class="hljs-keyword">ELSEIF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-built_in">Empty</span><span class="hljs-punctuation">(</span><span class="hljs-variable">@firstName</span><span class="hljs-punctuation">)</span> <span class="hljs-keyword">THEN</span>
+  <span class="hljs-keyword">SET</span> <span class="hljs-variable">@fullName</span> = <span class="hljs-variable">@firstName</span>
+<span class="hljs-keyword">ELSE</span>
+  <span class="hljs-keyword">SET</span> <span class="hljs-variable">@fullName</span> = <span class="hljs-string">&quot;Subscriber&quot;</span>
+<span class="hljs-keyword">ENDIF</span>
+
+<span class="hljs-built_in">Output</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">Concat</span><span class="hljs-punctuation">(</span><span class="hljs-string">&quot;Hello, &quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-variable">@fullName</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;!&quot;</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+<span class="hljs-meta">]%%</span>

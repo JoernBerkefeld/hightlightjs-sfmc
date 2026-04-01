@@ -1,0 +1,4 @@
+%%=v(@firstName)=%%
+%%=ContentBlockByKey("header")=%%
+%%=Lookup("DE", "Value", "Key", @key)=%%
+%%=IIf(Empty(@name), "Guest", @name)=%%

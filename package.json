@@ -1,0 +1,50 @@
+{
+  "name": "highlightjs-sfmc",
+  "version": "0.1.0",
+  "description": "Highlight.js grammars for Salesforce Marketing Cloud languages (AMPscript and SSJS)",
+  "main": "src/languages/ampscript.js",
+  "exports": {
+    ".": "./src/languages/ampscript.js",
+    "./ampscript": "./src/languages/ampscript.js",
+    "./ssjs": "./src/languages/ssjs.js",
+    "./all": "./src/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoernBerkefeld/highlightjs-sfmc.git"
+  },
+  "keywords": [
+    "AMPscript",
+    "SSJS",
+    "Salesforce Marketing Cloud",
+    "SFMC",
+    "hljs",
+    "highlightjs",
+    "highlight.js"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Joern Berkefeld <joern.berkefeld@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoernBerkefeld/highlightjs-sfmc/issues"
+  },
+  "homepage": "https://github.com/JoernBerkefeld/highlightjs-sfmc#readme",
+  "peerDependencies": {
+    "highlight.js": ">=11.0.0"
+  },
+  "devDependencies": {
+    "highlight.js": "^11.11.1",
+    "mocha": "^11.1.0",
+    "should": "^13.2.3"
+  }
+}

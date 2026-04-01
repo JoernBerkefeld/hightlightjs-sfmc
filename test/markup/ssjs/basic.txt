@@ -1,0 +1,17 @@
+Platform.Load("core", "1");
+
+var de = DataExtension.Init("MyDataExtension");
+var rows = de.Rows.Lookup(["Email"], ["test@example.com"]);
+
+if (rows && rows.length > 0) {
+  for (var i = 0; i < rows.length; i++) {
+    Write(Stringify(rows[i]));
+  }
+}
+
+var prox = new Script.Util.WSProxy();
+var result = prox.retrieve("DataExtension", ["Name", "CustomerKey"]);
+var status = result.Status;
+
+Platform.Response.Write("Done");
+Platform.Function.InsertData("LogDE", "Key", "test", "Value", "123");

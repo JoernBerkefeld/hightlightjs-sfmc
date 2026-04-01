@@ -1,0 +1,15 @@
+%%[
+VAR @firstName, @lastName, @fullName
+SET @firstName = "John"
+SET @lastName = AttributeValue("LastName")
+
+IF NOT Empty(@firstName) AND NOT Empty(@lastName) THEN
+  SET @fullName = Concat(@firstName, " ", @lastName)
+ELSEIF NOT Empty(@firstName) THEN
+  SET @fullName = @firstName
+ELSE
+  SET @fullName = "Subscriber"
+ENDIF
+
+Output(Concat("Hello, ", @fullName, "!"))
+]%%

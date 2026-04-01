@@ -1,0 +1,17 @@
+<span class="hljs-built_in">Platform</span><span class="language-javascript">.</span><span class="hljs-built_in">Load</span><span class="language-javascript">(<span class="hljs-string">&quot;core&quot;</span>, <span class="hljs-string">&quot;1&quot;</span>);
+
+<span class="hljs-keyword">var</span> de = </span><span class="hljs-built_in">DataExtension</span><span class="language-javascript">.</span><span class="hljs-title function_ invoke__">Init</span><span class="language-javascript">(<span class="hljs-string">&quot;MyDataExtension&quot;</span>);
+<span class="hljs-keyword">var</span> rows = de.<span class="hljs-property">Rows</span>.<span class="hljs-title class_">Lookup</span>([<span class="hljs-string">&quot;Email&quot;</span>], [<span class="hljs-string">&quot;test@example.com&quot;</span>]);
+
+<span class="hljs-keyword">if</span> (rows &amp;&amp; rows.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) {
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; rows.<span class="hljs-property">length</span>; i++) {
+    </span><span class="hljs-built_in">Write</span><span class="language-javascript">(</span><span class="hljs-built_in">Stringify</span><span class="language-javascript">(rows[i]));
+  }
+}
+
+<span class="hljs-keyword">var</span> prox = <span class="hljs-keyword">new</span> </span><span class="hljs-built_in">Script</span><span class="language-javascript">.</span><span class="hljs-built_in">Util</span><span class="language-javascript">.</span><span class="hljs-built_in">WSProxy</span><span class="language-javascript">();
+<span class="hljs-keyword">var</span> result = prox.</span><span class="hljs-title function_ invoke__">retrieve</span><span class="language-javascript">(<span class="hljs-string">&quot;DataExtension&quot;</span>, [<span class="hljs-string">&quot;Name&quot;</span>, <span class="hljs-string">&quot;CustomerKey&quot;</span>]);
+<span class="hljs-keyword">var</span> status = result.<span class="hljs-property">Status</span>;
+
+</span><span class="hljs-built_in">Platform</span><span class="language-javascript">.</span><span class="hljs-built_in">Response</span><span class="language-javascript">.</span><span class="hljs-built_in">Write</span><span class="language-javascript">(<span class="hljs-string">&quot;Done&quot;</span>);
+</span><span class="hljs-built_in">Platform</span><span class="language-javascript">.</span><span class="hljs-built_in">Function</span><span class="language-javascript">.</span><span class="hljs-built_in">InsertData</span><span class="language-javascript">(<span class="hljs-string">&quot;LogDE&quot;</span>, <span class="hljs-string">&quot;Key&quot;</span>, <span class="hljs-string">&quot;test&quot;</span>, <span class="hljs-string">&quot;Value&quot;</span>, <span class="hljs-string">&quot;123&quot;</span>);</span>

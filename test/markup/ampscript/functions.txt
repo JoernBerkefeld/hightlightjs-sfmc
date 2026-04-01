@@ -1,0 +1,21 @@
+%%[
+/* Data Extension operations */
+SET @rows = LookupRows("MyDataExtension", "Email", @emailAddr)
+SET @rowCount = RowCount(@rows)
+
+FOR @i = 1 TO @rowCount DO
+  SET @row = Row(@rows, @i)
+  SET @name = Field(@row, "Name")
+  SET @value = Field(@row, "Value")
+NEXT @i
+
+InsertData("LogDE", "Name", @name, "Value", @value)
+UpsertData("TargetDE", 1, "Key", @key, "Status", "active")
+
+SET @url = CloudPagesURL(1234)
+SET @encoded = Base64Encode("test string")
+SET @hash = SHA256("secret")
+SET @guid = GUID()
+SET @now = Now()
+SET @formatted = FormatDate(@now, "MMMM dd, yyyy")
+]%%

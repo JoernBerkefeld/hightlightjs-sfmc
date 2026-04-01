@@ -1,0 +1,7 @@
+%%[
+VAR @name
+SET @name = "Test"
+IF NOT Empty(@name) THEN
+  Output(@name)
+ENDIF
+]%%
